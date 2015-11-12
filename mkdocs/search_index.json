@@ -2,13 +2,13 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Welcome to MkDocs\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
+            "text": "Homepage for the project\n\n\nResources\n\n\n[[Source use cases and Project URLS]]\n\n\nVoyage Author Accuracy\n\n\nThis page uses MKDOCS\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
             "title": "Home"
         }, 
         {
-            "location": "/#welcome-to-mkdocs", 
+            "location": "/#this-page-uses-mkdocs", 
             "text": "For full documentation visit  mkdocs.org .", 
-            "title": "Welcome to MkDocs"
+            "title": "This page uses MKDOCS"
         }, 
         {
             "location": "/#commands", 
@@ -219,11 +219,6 @@
             "location": "/Current-Tasks-and-Notes/#location", 
             "text": "when DSU takes over MediaCAT web app, then we will look into having a UTSC subdomain.", 
             "title": "Location"
-        }, 
-        {
-            "location": "/Home/", 
-            "text": "Homepage for the project\n\n\nResources\n\n\n[[Source use cases and Project URLS]]\n\n\nVoyage Author Accuracy", 
-            "title": "Home"
         }, 
         {
             "location": "/How-to:-CSS-Selector-Training/", 
