@@ -3,6 +3,14 @@
 
     
     <url>
+     <loc>None/0-Home/</loc>
+     <lastmod>2016-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>None/2015-Current-Tasks-and-Notes/</loc>
      <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
@@ -20,14 +28,6 @@
     
     <url>
      <loc>None/Current-List-of-Israeli-Sources-and-Referring-Sites/</loc>
-     <lastmod>2016-03-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>None/Home/</loc>
      <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
