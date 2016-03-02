@@ -1,24 +1,234 @@
 {
     "docs": [
         {
-            "location": "/", 
-            "text": "Homepage for the project\n\n\nResources\n\n\n[[Source use cases and Project URLS]]\n\n\nVoyage Author Accuracy\n\n\nThis page uses MKDOCS\n\n\nFor full documentation visit \nmkdocs.org\n.\n\n\nCommands\n\n\n\n\nmkdocs new [dir-name]\n - Create a new project.\n\n\nmkdocs serve\n - Start the live-reloading docs server.\n\n\nmkdocs build\n - Build the documentation site.\n\n\nmkdocs help\n - Print this help message.\n\n\n\n\nProject layout\n\n\nmkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
-            "title": "Home"
+            "location": "/2015-Current-Tasks-and-Notes/", 
+            "text": "Open Issues in Github\n\n\nhttps://github.com/UTMediaCAT/Voyage/issues\n\n\nMove server\n\n\nDec 3\n\n\n\n\nTurns out that WARC'ing is going faster than we thought: approximately 800 URLs in 5 hours; 4 simultaneous processes take 1.7 GB Ram, with 2 processors. \n\n\n\n\n\n\nNov 26\n\n\n\n\nAfter 1pm meeting to go through ideal backlink export format for priority queuing\n\n\nPriority queuing using the Google, in the form of \"keyword site:\"\n\n\nTeam to Meet on tuesday for Diagrams and testing\n\n\ntesting over summer - 1 instance to 1.5 instance per cpu core\n\n\nalso in future parallel per site couple of nytimes still 1-1.5 per core\n\n\nJai got his placement because of the work he did for UTMEDIACAT!\n\n\n\n\nNov 19\n\n\n\n\nhave documentation, diagrams ready for all processes\n\n\ntest new database and see how much RAM/cpu space is required\n\n\nget email wording for permission to crawl sites\n\n\ncost few hundred\n\n\nset up meeting in mid December\nmay need more than 60gb\nRAM depends on how many sites in parallel\nswap space is slow if accessing all sites and accessing all memory\nan instance for 3 sites is 4gb memory being used\nwill cost few hundred dollars with IITS\n\n\n\n\nDatabase:\n\n\nDec 11:\n\n\n3 site paused when out of space but resumed afterwards. 60gb on digital ocean most taken out by logs, text files to see error codes. logs not rotated. cron job to delete log searches, using 14gb for 3 sites for 2 weeks incl ram and swap space. move to db would be the same or more in terms of site timing\nif a db, marginally more optimized but move to db may be a little bigger but not much more\n\n\nWilliam working on this, status is not ready to use, needs debug, check performance, check alternate ways to fix, 14gb\ntimeline on that is that it will happen after the break\n\n\nDec 3:\n\n\n\n\nMet to try do the MySQL: couldn't easily transfer the SQLite database to MySQL, so in the end, it might be easiest to have the Bot Discovery (Plan B) use MySQL for its RAM database, and keep the result database in SQLite. This will help with testing to ensure stability. Try to do for next week.\n\n\nStill need to incorporate the saving of source URLs, and implement the changes to UI.\n\n\n\n\nNov 26:\n\n\nMySQL update: Not yet work on implementation\n\n\nEntering them through web interface\nTesting them solution: get all selectors from db from a given site, evaluate a given page for every selector in place. vs. paste in every time. Create account for vinnie, login and test ssh connect to db.\n\n\nAlternate option: Django page instead to run and test selector\n\n\nSource articles - Jai - in progress\nnow working for new results. but now have to go and do it retroactively - make a script to go and get the source sites now\n\n\nNov 19:\n\n\n\n\nmeeting yesterday for the database selection\n\n\nthought of how to optimize going with MySQL with Django implement\n\n\nDjango can have multiple have dbs, keep existing SQL lite and implement new mysql database\n\n\nadd the archiving of source articles that are found, and have this reflected in the interface - deferred\n\n\n\n\nNov 5:\n\n\n\n\nadd the archiving of source articles that are found, and have this reflected in the interface \n\n\n\n\nWeekly sweeps\n\n\nNov 26\n\n\n\n\nnewspaper sweeps is fine - Alejandro to add still\n\n\n\n\nNov 19\n\n\ndaily weekly sweeps is fine for newspaper\n* need to add all the necessary referring sites - deferred for Alejandro to add\n\n\nNov 5:\n\n\n\n\nstarted without a hitch\n\n\nneed to add all the necessary referring sites\n\n\n\n\nWARC\n\n\nDec 3:\n\n\n\n\nFor easy viewing, we thought we would put a PDF version of webpage as a link. However the Phantom JS process for the PDF is taking a long time. We will wait to see if Roger has a solution, and if not, perhaps we will look into adding a WARC viewer.\n\n\n\n\nNov 12\n\n\n\n\nWARC'ing is stable, can do a maximum at 2 WARCs at a time, but this can be increased\n\n\nPDF-viewer: this is nearly ready, just need to have code merged\n\n\nthere was only one bad WARC\n\n\n\n\nNov 5\n\n\n\n\nWARC'ing is not done: there was a memory crash\n\n\nWARC: dynamic number of processes based on how much memory is available\n\n\nWARCs have been checked\n\n\n\n\nCrawler (Plan B) Test on NYT, CNN, BBC\n\n\nDec 11:\n\n\nnytimes, bbc, 2 weeks only being restarted\nfinding unique ones still\nnytimes 1 million\nbbc 900 000\ncnn 470 000\nCNN the most hits so far likely because of transcripts\n\n\ngoogle for mentions keywords not for backlinks\nahrefs better you can filter it better, able to filter, they had some sort of ability to do so and then pay for those links\nif you're using that need a program, using API charges more. API command not helpful\n\n\nDec 3:\n\n\n\n\nNew Terminology: Bot Discovery for the Plan B, and Newspaper Crawler is RSS Discovery\n\n\ntest Bot Discovery with WARC'ing processes.\n\n\n\n\nNov 26:\n\n\nCSS selector update:\nMade tool for testing CSS selectors. Current solution is doing it in the browser. Browser CSS selectors might not be the same implementation as the XML one - depends on which browser you use. Python script to use the xml stuff, same stuff that the crawler uses to test accurately. Needs SSH access to server needs access to get database to site. \n\n\n\n\ndisplay and keyword matched keyword - highlight keyword\n\n\ncostly to do for every article taking too much time\n\n\nshows all text and highlights all matching keywords\n\n\ncrash in 2 weeks but ran again and since then hasn't stopped\n\n\nanchor text is halfway there - the text of links\n\n\n\n\nNov 19:\n\n\n\n\ncrawler not run this week, will run next week\n\n\nimplement to store the text as well for each article, naive implementation to show the text around the found keyword based on text and matched keyword. recreate in articles. not currently stored in database. full text stored so see surrounding text. takes 5-10 seconds to load text in \"Matched Keywords\" - this will be used for the comparison of text when it's separated out\n\n\nanchor text is still required - william and yuya getting the link\n\n\n\n\nlots of cn.nytimes.com \n\n\nNov 12:\n\n\n\n\nno crash, but 2 processes are stuck, might be external\n\n\nNext Tuesday: Yuya, Jai, and William will meet to talk about database\n\n\nno other problems as of right now.\n\n\nwe'll attempt to separate out the text of the article in order to make it available for comparison on re-crawls\n\n\nfinding about 20 hits a day, mostly on NYT\n\n\nCSS selectors: \n\n\n\n\nNov 5:\n\n\n\n\ndatabase/save state: not yet working; don't go with sql-lite; use MySQL or other\n\n\nwe will increase server capacity to 40 gb \n 4gb RAM, \n\n\nWe are targetting December to finish implementing the database, and getting ready to do a baseline crawl.\n\n\n\n\nOptimizing plan b crawler:\n\n\nDec 11:\n\n\npriority queuing: few hundreds can be found, doing the whole thing would be difficulty\nlimited results but many duplicates\n\n\nPriority Queuing (Oct 15):\n\n\n\n\nsearch google for all aliases and then queue those hits.\n\n\nproblem: google doesn't search embedded links, would need a source code search for that, so Alejandro is going to write to google.\n\n\nlooking at getting backlinks from a company.\n\n\n\n\nmulti-threading on single site:\n\n\n\n\nwhere one process is downloading/queuing and one process is analyzing metadata \n\n\nleave until later, need to iron out bugs with crawler first.\n\n\n\n\nmulti-threading for multiple sites:\n\n\nOct 15\n\n\n\n\nImplemented multi-threading\n\n\nImplemented log per site\n\n\n\n\nOct 8\n\n\n\n\nWilliam will implement newspaper code for analysis, and Yuya will test it; \n\n\nWilliam/Yuya will also implement a log per web domain per crawl (instead of all together)\n\n\nfixes that were implemented to crawler need to be implemented in the multi-thread crawler, needs to be done manually - William\n\n\nkeep on eye on this: readability issue was implemented over the summer, and this makes the crawl faster, but that also leads to greater instability, the source of the errors we saw this week.\n\n\n\n\nCSS Selectors\n\n\nDec 3\n\n\n\n\nCode for testing CSS selectors, but it needs to be incorporated into the UI.\n\n\n\n\nNov 19\n\n\nUI for CSS selectors on the site - for adding selectors. go to a site in referring sites and click on the site, can add css selectors at the bottom of the page\nneeds to be hooked up to the crawler\nright now only hooked up to date modified and author\n* will Alejandro want to add CSS selectors to the old database sites as well? will he use the old database?\n\n\nNov 12\n\n\n\n\ncode is implemented to find CSS selectors as part of Newspaper, but we need UI on the site, so that a user can go in and plug in CSS selectors based on domain\n\n\n\n\n\n\nNov 5\n\n\n\n\nneed some examples from Vinnie of CSS Selectors that need regular expression trouble shooting", 
+            "title": "2015 Current Tasks and Notes"
         }, 
         {
-            "location": "/#this-page-uses-mkdocs", 
-            "text": "For full documentation visit  mkdocs.org .", 
-            "title": "This page uses MKDOCS"
+            "location": "/2015-Current-Tasks-and-Notes/#open-issues-in-github", 
+            "text": "https://github.com/UTMediaCAT/Voyage/issues", 
+            "title": "Open Issues in Github"
         }, 
         {
-            "location": "/#commands", 
-            "text": "mkdocs new [dir-name]  - Create a new project.  mkdocs serve  - Start the live-reloading docs server.  mkdocs build  - Build the documentation site.  mkdocs help  - Print this help message.", 
-            "title": "Commands"
+            "location": "/2015-Current-Tasks-and-Notes/#move-server", 
+            "text": "", 
+            "title": "Move server"
         }, 
         {
-            "location": "/#project-layout", 
-            "text": "mkdocs.yml    # The configuration file.\ndocs/\n    index.md  # The documentation homepage.\n    ...       # Other markdown pages, images and other files.", 
-            "title": "Project layout"
+            "location": "/2015-Current-Tasks-and-Notes/#dec-3", 
+            "text": "Turns out that WARC'ing is going faster than we thought: approximately 800 URLs in 5 hours; 4 simultaneous processes take 1.7 GB Ram, with 2 processors.", 
+            "title": "Dec 3"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-26", 
+            "text": "After 1pm meeting to go through ideal backlink export format for priority queuing  Priority queuing using the Google, in the form of \"keyword site:\"  Team to Meet on tuesday for Diagrams and testing  testing over summer - 1 instance to 1.5 instance per cpu core  also in future parallel per site couple of nytimes still 1-1.5 per core  Jai got his placement because of the work he did for UTMEDIACAT!", 
+            "title": "Nov 26"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-19", 
+            "text": "have documentation, diagrams ready for all processes  test new database and see how much RAM/cpu space is required  get email wording for permission to crawl sites  cost few hundred  set up meeting in mid December\nmay need more than 60gb\nRAM depends on how many sites in parallel\nswap space is slow if accessing all sites and accessing all memory\nan instance for 3 sites is 4gb memory being used\nwill cost few hundred dollars with IITS", 
+            "title": "Nov 19"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#database", 
+            "text": "", 
+            "title": "Database:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#dec-11", 
+            "text": "3 site paused when out of space but resumed afterwards. 60gb on digital ocean most taken out by logs, text files to see error codes. logs not rotated. cron job to delete log searches, using 14gb for 3 sites for 2 weeks incl ram and swap space. move to db would be the same or more in terms of site timing\nif a db, marginally more optimized but move to db may be a little bigger but not much more  William working on this, status is not ready to use, needs debug, check performance, check alternate ways to fix, 14gb\ntimeline on that is that it will happen after the break", 
+            "title": "Dec 11:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#dec-3_1", 
+            "text": "Met to try do the MySQL: couldn't easily transfer the SQLite database to MySQL, so in the end, it might be easiest to have the Bot Discovery (Plan B) use MySQL for its RAM database, and keep the result database in SQLite. This will help with testing to ensure stability. Try to do for next week.  Still need to incorporate the saving of source URLs, and implement the changes to UI.", 
+            "title": "Dec 3:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-26_1", 
+            "text": "MySQL update: Not yet work on implementation  Entering them through web interface\nTesting them solution: get all selectors from db from a given site, evaluate a given page for every selector in place. vs. paste in every time. Create account for vinnie, login and test ssh connect to db.  Alternate option: Django page instead to run and test selector  Source articles - Jai - in progress\nnow working for new results. but now have to go and do it retroactively - make a script to go and get the source sites now", 
+            "title": "Nov 26:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-19_1", 
+            "text": "meeting yesterday for the database selection  thought of how to optimize going with MySQL with Django implement  Django can have multiple have dbs, keep existing SQL lite and implement new mysql database  add the archiving of source articles that are found, and have this reflected in the interface - deferred", 
+            "title": "Nov 19:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-5", 
+            "text": "add the archiving of source articles that are found, and have this reflected in the interface", 
+            "title": "Nov 5:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#weekly-sweeps", 
+            "text": "", 
+            "title": "Weekly sweeps"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-26_2", 
+            "text": "newspaper sweeps is fine - Alejandro to add still", 
+            "title": "Nov 26"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-19_2", 
+            "text": "daily weekly sweeps is fine for newspaper\n* need to add all the necessary referring sites - deferred for Alejandro to add", 
+            "title": "Nov 19"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-5_1", 
+            "text": "started without a hitch  need to add all the necessary referring sites", 
+            "title": "Nov 5:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#warc", 
+            "text": "", 
+            "title": "WARC"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#dec-3_2", 
+            "text": "For easy viewing, we thought we would put a PDF version of webpage as a link. However the Phantom JS process for the PDF is taking a long time. We will wait to see if Roger has a solution, and if not, perhaps we will look into adding a WARC viewer.", 
+            "title": "Dec 3:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-12", 
+            "text": "WARC'ing is stable, can do a maximum at 2 WARCs at a time, but this can be increased  PDF-viewer: this is nearly ready, just need to have code merged  there was only one bad WARC", 
+            "title": "Nov 12"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-5_2", 
+            "text": "WARC'ing is not done: there was a memory crash  WARC: dynamic number of processes based on how much memory is available  WARCs have been checked", 
+            "title": "Nov 5"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#crawler-plan-b-test-on-nyt-cnn-bbc", 
+            "text": "", 
+            "title": "Crawler (Plan B) Test on NYT, CNN, BBC"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#dec-11_1", 
+            "text": "nytimes, bbc, 2 weeks only being restarted\nfinding unique ones still\nnytimes 1 million\nbbc 900 000\ncnn 470 000\nCNN the most hits so far likely because of transcripts  google for mentions keywords not for backlinks\nahrefs better you can filter it better, able to filter, they had some sort of ability to do so and then pay for those links\nif you're using that need a program, using API charges more. API command not helpful", 
+            "title": "Dec 11:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#dec-3_3", 
+            "text": "New Terminology: Bot Discovery for the Plan B, and Newspaper Crawler is RSS Discovery  test Bot Discovery with WARC'ing processes.", 
+            "title": "Dec 3:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-26_3", 
+            "text": "CSS selector update:\nMade tool for testing CSS selectors. Current solution is doing it in the browser. Browser CSS selectors might not be the same implementation as the XML one - depends on which browser you use. Python script to use the xml stuff, same stuff that the crawler uses to test accurately. Needs SSH access to server needs access to get database to site.    display and keyword matched keyword - highlight keyword  costly to do for every article taking too much time  shows all text and highlights all matching keywords  crash in 2 weeks but ran again and since then hasn't stopped  anchor text is halfway there - the text of links", 
+            "title": "Nov 26:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-19_3", 
+            "text": "crawler not run this week, will run next week  implement to store the text as well for each article, naive implementation to show the text around the found keyword based on text and matched keyword. recreate in articles. not currently stored in database. full text stored so see surrounding text. takes 5-10 seconds to load text in \"Matched Keywords\" - this will be used for the comparison of text when it's separated out  anchor text is still required - william and yuya getting the link   lots of cn.nytimes.com", 
+            "title": "Nov 19:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-12_1", 
+            "text": "no crash, but 2 processes are stuck, might be external  Next Tuesday: Yuya, Jai, and William will meet to talk about database  no other problems as of right now.  we'll attempt to separate out the text of the article in order to make it available for comparison on re-crawls  finding about 20 hits a day, mostly on NYT  CSS selectors:", 
+            "title": "Nov 12:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-5_3", 
+            "text": "database/save state: not yet working; don't go with sql-lite; use MySQL or other  we will increase server capacity to 40 gb   4gb RAM,   We are targetting December to finish implementing the database, and getting ready to do a baseline crawl.", 
+            "title": "Nov 5:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#optimizing-plan-b-crawler", 
+            "text": "", 
+            "title": "Optimizing plan b crawler:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#dec-11_2", 
+            "text": "priority queuing: few hundreds can be found, doing the whole thing would be difficulty\nlimited results but many duplicates", 
+            "title": "Dec 11:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#priority-queuing-oct-15", 
+            "text": "search google for all aliases and then queue those hits.  problem: google doesn't search embedded links, would need a source code search for that, so Alejandro is going to write to google.  looking at getting backlinks from a company.", 
+            "title": "Priority Queuing (Oct 15):"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#multi-threading-on-single-site", 
+            "text": "where one process is downloading/queuing and one process is analyzing metadata   leave until later, need to iron out bugs with crawler first.", 
+            "title": "multi-threading on single site:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#multi-threading-for-multiple-sites", 
+            "text": "Oct 15   Implemented multi-threading  Implemented log per site   Oct 8   William will implement newspaper code for analysis, and Yuya will test it;   William/Yuya will also implement a log per web domain per crawl (instead of all together)  fixes that were implemented to crawler need to be implemented in the multi-thread crawler, needs to be done manually - William  keep on eye on this: readability issue was implemented over the summer, and this makes the crawl faster, but that also leads to greater instability, the source of the errors we saw this week.", 
+            "title": "multi-threading for multiple sites:"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#css-selectors", 
+            "text": "", 
+            "title": "CSS Selectors"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#dec-3_4", 
+            "text": "Code for testing CSS selectors, but it needs to be incorporated into the UI.", 
+            "title": "Dec 3"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-19_4", 
+            "text": "UI for CSS selectors on the site - for adding selectors. go to a site in referring sites and click on the site, can add css selectors at the bottom of the page\nneeds to be hooked up to the crawler\nright now only hooked up to date modified and author\n* will Alejandro want to add CSS selectors to the old database sites as well? will he use the old database?", 
+            "title": "Nov 19"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-12_2", 
+            "text": "code is implemented to find CSS selectors as part of Newspaper, but we need UI on the site, so that a user can go in and plug in CSS selectors based on domain", 
+            "title": "Nov 12"
+        }, 
+        {
+            "location": "/2015-Current-Tasks-and-Notes/#nov-5_4", 
+            "text": "need some examples from Vinnie of CSS Selectors that need regular expression trouble shooting", 
+            "title": "Nov 5"
+        }, 
+        {
+            "location": "/2016-Current-Tasks-and-Notes/", 
+            "text": "Updates have moved\n\n\nhttps://trello.com/b/Y4g02YiL\n\n\nOpen Issues in Github\n\n\nhttps://github.com/UTMediaCAT/Voyage/issues\n\n\nIITS Server Move\n\n\n\n\nclear out VMs on Digital Ocean--Roger will check with Jai \n Yuya\n\n\ndecided on VM type and size\n\n\n\n\n\n\nOptimization\n\n\n\n\nRoger is working on WARC and Crawl processes that take up so much memory, and can cause crashes\n\n\n\n\nUI \n Public Portal:\n\n\n\n\nRoger will check with Jai about implementing Source/Referring split for data, and ensure that we are WARCing source URLs\n\n\nadding a language column to the database\n\n\nJai will do the \"alias\" for the UI\n\n\nWe have converted \"weekly sweeps\" into \"main\", and given it a password (see our channel).\n\n\nWe are going to go with a clean, simple \"Bootstrap\" modern business portal\n\n\nFor the portal, we will use \"generic\" tags for the statistics for now.\n\n\n\n\nDatabase\n\n\n\n\nWilliam started it, need to do speed tests, and what happens when visit queues get large. Issue for how Django issues queries. Speed test will start Jan 6, and take 2-3 weeks.\n\n\nYuya can help migrate the database to Django.\n\n\nJan 13: William started test with full log, and on a few websites, with paging-version, to discover what procedures, and then will get the logs to test an instance with paging versus an instance with the database.\n\n\none issue: al-Jazeera using much more RAM than NYtimes, crawl is much slower. Al-Jazeera is the problem we hope that database can solve. \n\n\nJan 27: database not working well. Paging was able to do 2 weeks of searches in bw 160-350 seconds, 139,000,000 operations, while MySQL did not deal with this well, doing only 1,000,000 in several hours. William will consult with other team members over dev channel of Slack. One possible solution is to \"do queries ourselves\" rather than rely on Django (too black boxy). One week is a possible for implementing this, asssuming everyone agrees that this is a good way to go. \n\n\n\n\nGithub issues\n\n\n\n\ndid we resolve duplicates, #43 \n 31? if not, how long? Yuya is looking at duplication.\n\n\nDec 13: Vinnie is finding a lot of duplicates.\n\n\ngoing over Github issues, and prioritize them; make product roadmap with necessary features and deadlines\n\n\nget data sets from ahRefs, Factiva, Proquest (and mark these datasets, so that can query them specifically in future)\n\n\nmake timeline for staged ingesting\n\n\nmake good documentation\n\n\n\n\nCSS Selectors\n\n\n\n\nissue with domains having more than one set of CSS selector, so add as much as possible\n\n\nblacklist the mobile site?", 
+            "title": "2016 Current Tasks and Notes"
+        }, 
+        {
+            "location": "/2016-Current-Tasks-and-Notes/#updates-have-moved", 
+            "text": "https://trello.com/b/Y4g02YiL", 
+            "title": "Updates have moved"
+        }, 
+        {
+            "location": "/2016-Current-Tasks-and-Notes/#open-issues-in-github", 
+            "text": "https://github.com/UTMediaCAT/Voyage/issues", 
+            "title": "Open Issues in Github"
+        }, 
+        {
+            "location": "/2016-Current-Tasks-and-Notes/#iits-server-move", 
+            "text": "clear out VMs on Digital Ocean--Roger will check with Jai   Yuya  decided on VM type and size", 
+            "title": "IITS Server Move"
+        }, 
+        {
+            "location": "/2016-Current-Tasks-and-Notes/#optimization", 
+            "text": "Roger is working on WARC and Crawl processes that take up so much memory, and can cause crashes", 
+            "title": "Optimization"
+        }, 
+        {
+            "location": "/2016-Current-Tasks-and-Notes/#ui-public-portal", 
+            "text": "Roger will check with Jai about implementing Source/Referring split for data, and ensure that we are WARCing source URLs  adding a language column to the database  Jai will do the \"alias\" for the UI  We have converted \"weekly sweeps\" into \"main\", and given it a password (see our channel).  We are going to go with a clean, simple \"Bootstrap\" modern business portal  For the portal, we will use \"generic\" tags for the statistics for now.", 
+            "title": "UI &amp; Public Portal:"
+        }, 
+        {
+            "location": "/2016-Current-Tasks-and-Notes/#database", 
+            "text": "William started it, need to do speed tests, and what happens when visit queues get large. Issue for how Django issues queries. Speed test will start Jan 6, and take 2-3 weeks.  Yuya can help migrate the database to Django.  Jan 13: William started test with full log, and on a few websites, with paging-version, to discover what procedures, and then will get the logs to test an instance with paging versus an instance with the database.  one issue: al-Jazeera using much more RAM than NYtimes, crawl is much slower. Al-Jazeera is the problem we hope that database can solve.   Jan 27: database not working well. Paging was able to do 2 weeks of searches in bw 160-350 seconds, 139,000,000 operations, while MySQL did not deal with this well, doing only 1,000,000 in several hours. William will consult with other team members over dev channel of Slack. One possible solution is to \"do queries ourselves\" rather than rely on Django (too black boxy). One week is a possible for implementing this, asssuming everyone agrees that this is a good way to go.", 
+            "title": "Database"
+        }, 
+        {
+            "location": "/2016-Current-Tasks-and-Notes/#github-issues", 
+            "text": "did we resolve duplicates, #43   31? if not, how long? Yuya is looking at duplication.  Dec 13: Vinnie is finding a lot of duplicates.  going over Github issues, and prioritize them; make product roadmap with necessary features and deadlines  get data sets from ahRefs, Factiva, Proquest (and mark these datasets, so that can query them specifically in future)  make timeline for staged ingesting  make good documentation", 
+            "title": "Github issues"
+        }, 
+        {
+            "location": "/2016-Current-Tasks-and-Notes/#css-selectors", 
+            "text": "issue with domains having more than one set of CSS selector, so add as much as possible  blacklist the mobile site?", 
+            "title": "CSS Selectors"
         }, 
         {
             "location": "/Current-List-of-Israeli-Sources-and-Referring-Sites/", 
@@ -26,199 +236,9 @@
             "title": "Current List of Israeli Sources and Referring Sites"
         }, 
         {
-            "location": "/Current-Tasks-and-Notes/", 
-            "text": "Database:\n\n\nNov 5:\n\n\n*add the archiving of source articles that are found, and have this reflected in the interface\n\n\nWeekly sweeps\n\n\nNov 5:\n\n\n\n\nstarted without a hitch\n\n\nneed to add all the necessary referring sites\n\n\n\n\nOct 29:\n\n\n\n\nin a day, found 161, not linear, first hour was a lot, then found less in the next 23\n\n\n\n\nOct 22:\n\n\n\n\nJai/Roger will look into setting up an instance of UTMediaCAT to scan twitter and domains that use Newspaper/RSS \n\n\n\n\nImage preservation and style sheets preservation\n\n\nOct 15\n\n\n\n\ngenerally, the WPull is working really well, takes about 100 seconds to generate the WARC \n\n\noccasionally, some strange issues, like black background, but doesn't affect the text and links\n\n\n\n\nWARC\n\n\nNov 5\n\n\n\n\nWARC'ing is not done: there was a memory crash\n\n\nWARC: dynamic number of processes based on how much memory is available\n\n\nWARCs have been checked\n\n\n\n\nOct 29\n\n\n\n\nWARC'ing also can take up a lot of memory, approx 2 minutes for each hit, need to implement a queue with a maximum number of simultaneous processes.\n\n\n\n\nOct 8\n\n\n\n\nRoger and Jai managed to get the PhantomJS/WPull to get the WARC, but there's a problem with the speed\n\n\nRoger/Jai believe that they can make it faster by figuring out what elements to ignore --- here's what Roger writes: \"we can manually force it to generate files in 2 mins for each url, and the results can be sill good. However, as a result, it is likely that a few images will be missing.( you can check the attachments to see sample file generated by this strategy)\"\n\n\n\n\nOct 1:\n\n\n\n\nRoger figure out how to use PhantomJS \n WPull to get an html output, which runs javascript. This week Jai/Roger will look to see if it's possible to do direct to WARC (preferable to having an export to WARC or conversion from HTML). If so, that's what we'll use.\n\n\n\n\nOLD:\n\n\n\n\nWarC vs Zotero-like ability to snapshot? Jai: snapshot is possible. Kim writes why WARC is far preferable. Problem: not easy to WARC a javascript\n\n\nPhantomJS:  does a PDF of the webpage, but the \"print-out\" version, doesn't have selectable text (not good)\n\n\nWKHTMLtoPDF: renders most of the javascript, linux-version\n\n\nChrome extension works but it is very dependent, one possibility is to have an auto-clicker that runs through Chrome--seems to work best, but would need to have an instance of chromium to handle it\n\n\nSelenium: another project -- checking into it. \n\n\nChrome javascript is available, but it isn't trivial to automate. Question: does the DSU have WARC'ing functionality they can give us? Maybe talk to Anya before going to all the trouble.\n\n\nYuya/Roger also looking at Warc issue\n\n\n\n\nCrawler (Plan B) Test on NYT, CNN, BBC\n\n\nNov 5:\n\n\n\n\ndatabase/save state: not yet working; don't go with sql-lite; use MySQL or other\n\n\nwe will increase server capacity to 40 gb \n 4gb RAM, \n\n\nWe are targetting December to finish implementing the database, and getting ready to do a baseline crawl.\n\n\n\n\nOct 29:\n\n\n\n\ndebugged problem of not picking anything up\n\n\nmemory issue: even with six minute interval of memory logging, we're not able to see why memory usage goes up suddenly\n\n\none possible solution is to do save state/database: probably best to do this for a variety of reasons\n\n\nanother solution is hashing and perhaps 64 bit hashing.\n\n\nanother possible solution: paging: using hard drive for RAM \n\n\nwhether we need more server capacity\n\n\n\n\nOct 22:\n\n\n\n\nnothing picked up yet\n\n\nfreezes, and memory issues: debugging (William), need to catch just before it crashes\n\n\n\n\n\n\nOct 15:\n\n\n\n\nsome problems with the NYT/BBC searches, probably not a unicode problem, and try to see if this is solved by next week.\n\n\n\n\nOct 8\n\n\n\n\nSeems like the unicode problem has been fixed, and the 3 instances have now been running for 12 hours without crashing\n\n\nrates for speed: Cnn is 5000 pages/hour; NYT: 3700 pg/hr; BBC: 1700 pg/hr\n\n\nkeep doing the test, to get a sense; gone through 150,000 pages in last 12 hours with no hits\n\n\n\n\nOct 1\n\n\n\n\nOct 1st: NYT crashed, cnn.com stuck on transcript.cnn.com, BBC going about half the speed of cnn.com. Next week: figure out an average rate per hour or day. \n\n\nOct 1st: three instances running. We'll add exception handler to deal with normal breakdowns so that the crawl continues.\n\n\n\n\nOptimizing plan b crawler:\n\n\nPriority Queuing (Oct 15):\n\n\n\n\nsearch google for all aliases and then queue those hits.\n\n\nproblem: google doesn't search embedded links, would need a source code search for that, so Alejandro is going to write to google.\n\n\nlooking at getting backlinks from a company.\n\n\n\n\nmulti-threading on single site:\n\n\n\n\nwhere one process is downloading/queuing and one process is analyzing metadata \n\n\nleave until later, need to iron out bugs with crawler first.\n\n\n\n\nmulti-threading for multiple sites:\n\n\nOct 15\n\n\n\n\nImplemented multi-threading\n\n\nImplemented log per site\n\n\n\n\nOct 8\n\n\n\n\nWilliam will implement newspaper code for analysis, and Yuya will test it; \n\n\nWilliam/Yuya will also implement a log per web domain per crawl (instead of all together)\n\n\nfixes that were implemented to crawler need to be implemented in the multi-thread crawler, needs to be done manually - William\n\n\nkeep on eye on this: readability issue was implemented over the summer, and this makes the crawl faster, but that also leads to greater instability, the source of the errors we saw this week.\n\n\n\n\nnotes\n\n\n\n\nOct 1: \n\n\nquestion regarding regular expressions, and whether there should be some kind of automated interface to alert user of url patterns or subdomains that are not bringing up hits - we'll think about this.\n\n\nremember what's not an article - Not yet assigned\n\n\na way to discover new articles, eg \"this week's stories\"  - Not yet assigned\n\n\n\n\n3rd party search - Not yet assigned\n\n\n\n\n\n\ndependent on upgrading python, perhaps by Sep 17th, if not Sep 24th\n\n\n\n\nunicode issue that needs to be tested, but it has been incorporated.\n\n\nupgrade is done, \"crawler straying off\" issue - crawler seems to get stuck in video or other path: Yuya will look for ways to produce a \"regular expression\" of URL (white/black list) \n-- Yuya has implemented a filter, so that user can manually insert black list: either normal string or reg ex.\n\n\nproblem that the crawler is treating the same url as distinct urls - William has a solution (Sep 24th) - fixed\n\n\ncode needs to be modified so it doesn't skip something - fixed\n\n\nquestion: does anyone get mad at us, kick out our user agent?\n\n\n\n\nCSS Selectors\n\n\nNov 5\n\n\n\n\nneed some examples from Vinnie of CSS Selectors that need regular expression trouble shooting\n\n\n\n\nOct 29\n\n\n\n\nCSS selector interface needs to be implemented\n\n\ngenerally going well, and will go over with William next week\n\n\nsome problems from last week persist.\n\n\n\n\nOct 22\n\n\n\n\nmondoweiss: need regular expressions to prevent duplicates b/c the comments are distinct\n\n\ntime zone stuff: apparently not difficult to maintain the TZ, but different websites handle this differently\n\n\nalso issue with the Washington Times, show it to us next week.\n\n\n\n\nOct 15\n\n\n\n\nVinnie is getting through this, and next week she'll bring a spreadsheet\n\n\nVinnie will also see if it's possible to keep both date posted and date modified, \n\n\nYuya will add a column to the database for \"date posted\" in cases where this is available\n\n\n\n\nOct 8\n\n\n\n\nVinnie will start looking at the old article database, when available (Yuya setting up), in order to start comparing column entries with timestamp/date and Author and (1) generate a list of problems (like Eldiflor's) and (2) then start to find CSS Selectors.\n\n\n\n\nOld\n\n\n\n\nVinnie \n Alejandro learned how to find css selectors, Vinnie will try to do a few for Sep 24th.\n\n\nVinnie has done most of the sites, and had trouble with two sites\n\n\nin addition to CSS selector: need reg ex to identify the metadata, eg. if author says \"by Name\", need reg ex that can strip out \"by\". So Vinnie will eventually need to write the regex for each site where there's an issue. -- not for now.\n\n\nAlejandro will send a list of sites to add to Vinnie, and Yuya will run an instance that won't be infinite to find which sites are not working for author/date/timestamp pick up - Sep 24\n\n\n\n\nAlias/Tags\n\n\nOct 15\n\n\n\n\nold code is somewhat in conflict, and needs to be pushed with updates - for Oct 22.\n\n\nJai has written code for scope alias and tags and cache, needs to be tested - OCt 1\n\n\n\n\nInterface\n\n\n\n\nRoger is suggesting to look at the following to update the stats: http://ironsummitmedia.github.io/startbootstrap-sb-admin-2/pages/index.html\n\n\n\n\nUpgrade Newspaper/Python\n\n\n\n\nnewspaper: upgrading python and then this will run, and moved to digital ocean -- done \n\n\nhope to have the IP address for the MedCAT -- Yuya emailed.\n\n\n\n\nTeam\n\n\n\n\nAlejandro will email Paul for the possible other developer. -- leave it for now\n\n\n\n\nLocation\n\n\n\n\nwhen DSU takes over MediaCAT web app, then we will look into having a UTSC subdomain.", 
-            "title": "Current Tasks and Notes"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#database", 
-            "text": "", 
-            "title": "Database:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#nov-5", 
-            "text": "*add the archiving of source articles that are found, and have this reflected in the interface", 
-            "title": "Nov 5:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#weekly-sweeps", 
-            "text": "", 
-            "title": "Weekly sweeps"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#nov-5_1", 
-            "text": "started without a hitch  need to add all the necessary referring sites", 
-            "title": "Nov 5:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-29", 
-            "text": "in a day, found 161, not linear, first hour was a lot, then found less in the next 23", 
-            "title": "Oct 29:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-22", 
-            "text": "Jai/Roger will look into setting up an instance of UTMediaCAT to scan twitter and domains that use Newspaper/RSS", 
-            "title": "Oct 22:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#image-preservation-and-style-sheets-preservation", 
-            "text": "", 
-            "title": "Image preservation and style sheets preservation"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-15", 
-            "text": "generally, the WPull is working really well, takes about 100 seconds to generate the WARC   occasionally, some strange issues, like black background, but doesn't affect the text and links", 
-            "title": "Oct 15"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#warc", 
-            "text": "", 
-            "title": "WARC"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#nov-5_2", 
-            "text": "WARC'ing is not done: there was a memory crash  WARC: dynamic number of processes based on how much memory is available  WARCs have been checked", 
-            "title": "Nov 5"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-29_1", 
-            "text": "WARC'ing also can take up a lot of memory, approx 2 minutes for each hit, need to implement a queue with a maximum number of simultaneous processes.", 
-            "title": "Oct 29"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-8", 
-            "text": "Roger and Jai managed to get the PhantomJS/WPull to get the WARC, but there's a problem with the speed  Roger/Jai believe that they can make it faster by figuring out what elements to ignore --- here's what Roger writes: \"we can manually force it to generate files in 2 mins for each url, and the results can be sill good. However, as a result, it is likely that a few images will be missing.( you can check the attachments to see sample file generated by this strategy)\"", 
-            "title": "Oct 8"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-1", 
-            "text": "Roger figure out how to use PhantomJS   WPull to get an html output, which runs javascript. This week Jai/Roger will look to see if it's possible to do direct to WARC (preferable to having an export to WARC or conversion from HTML). If so, that's what we'll use.", 
-            "title": "Oct 1:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#old", 
-            "text": "WarC vs Zotero-like ability to snapshot? Jai: snapshot is possible. Kim writes why WARC is far preferable. Problem: not easy to WARC a javascript  PhantomJS:  does a PDF of the webpage, but the \"print-out\" version, doesn't have selectable text (not good)  WKHTMLtoPDF: renders most of the javascript, linux-version  Chrome extension works but it is very dependent, one possibility is to have an auto-clicker that runs through Chrome--seems to work best, but would need to have an instance of chromium to handle it  Selenium: another project -- checking into it.   Chrome javascript is available, but it isn't trivial to automate. Question: does the DSU have WARC'ing functionality they can give us? Maybe talk to Anya before going to all the trouble.  Yuya/Roger also looking at Warc issue", 
-            "title": "OLD:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#crawler-plan-b-test-on-nyt-cnn-bbc", 
-            "text": "", 
-            "title": "Crawler (Plan B) Test on NYT, CNN, BBC"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#nov-5_3", 
-            "text": "database/save state: not yet working; don't go with sql-lite; use MySQL or other  we will increase server capacity to 40 gb   4gb RAM,   We are targetting December to finish implementing the database, and getting ready to do a baseline crawl.", 
-            "title": "Nov 5:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-29_2", 
-            "text": "debugged problem of not picking anything up  memory issue: even with six minute interval of memory logging, we're not able to see why memory usage goes up suddenly  one possible solution is to do save state/database: probably best to do this for a variety of reasons  another solution is hashing and perhaps 64 bit hashing.  another possible solution: paging: using hard drive for RAM   whether we need more server capacity", 
-            "title": "Oct 29:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-22_1", 
-            "text": "nothing picked up yet  freezes, and memory issues: debugging (William), need to catch just before it crashes", 
-            "title": "Oct 22:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-15_1", 
-            "text": "some problems with the NYT/BBC searches, probably not a unicode problem, and try to see if this is solved by next week.", 
-            "title": "Oct 15:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-8_1", 
-            "text": "Seems like the unicode problem has been fixed, and the 3 instances have now been running for 12 hours without crashing  rates for speed: Cnn is 5000 pages/hour; NYT: 3700 pg/hr; BBC: 1700 pg/hr  keep doing the test, to get a sense; gone through 150,000 pages in last 12 hours with no hits", 
-            "title": "Oct 8"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-1_1", 
-            "text": "Oct 1st: NYT crashed, cnn.com stuck on transcript.cnn.com, BBC going about half the speed of cnn.com. Next week: figure out an average rate per hour or day.   Oct 1st: three instances running. We'll add exception handler to deal with normal breakdowns so that the crawl continues.", 
-            "title": "Oct 1"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#optimizing-plan-b-crawler", 
-            "text": "", 
-            "title": "Optimizing plan b crawler:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#priority-queuing-oct-15", 
-            "text": "search google for all aliases and then queue those hits.  problem: google doesn't search embedded links, would need a source code search for that, so Alejandro is going to write to google.  looking at getting backlinks from a company.", 
-            "title": "Priority Queuing (Oct 15):"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#multi-threading-on-single-site", 
-            "text": "where one process is downloading/queuing and one process is analyzing metadata   leave until later, need to iron out bugs with crawler first.", 
-            "title": "multi-threading on single site:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#multi-threading-for-multiple-sites", 
-            "text": "Oct 15   Implemented multi-threading  Implemented log per site   Oct 8   William will implement newspaper code for analysis, and Yuya will test it;   William/Yuya will also implement a log per web domain per crawl (instead of all together)  fixes that were implemented to crawler need to be implemented in the multi-thread crawler, needs to be done manually - William  keep on eye on this: readability issue was implemented over the summer, and this makes the crawl faster, but that also leads to greater instability, the source of the errors we saw this week.", 
-            "title": "multi-threading for multiple sites:"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#notes", 
-            "text": "Oct 1:   question regarding regular expressions, and whether there should be some kind of automated interface to alert user of url patterns or subdomains that are not bringing up hits - we'll think about this.  remember what's not an article - Not yet assigned  a way to discover new articles, eg \"this week's stories\"  - Not yet assigned   3rd party search - Not yet assigned    dependent on upgrading python, perhaps by Sep 17th, if not Sep 24th   unicode issue that needs to be tested, but it has been incorporated.  upgrade is done, \"crawler straying off\" issue - crawler seems to get stuck in video or other path: Yuya will look for ways to produce a \"regular expression\" of URL (white/black list) \n-- Yuya has implemented a filter, so that user can manually insert black list: either normal string or reg ex.  problem that the crawler is treating the same url as distinct urls - William has a solution (Sep 24th) - fixed  code needs to be modified so it doesn't skip something - fixed  question: does anyone get mad at us, kick out our user agent?", 
-            "title": "notes"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#css-selectors", 
-            "text": "", 
-            "title": "CSS Selectors"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#nov-5_4", 
-            "text": "need some examples from Vinnie of CSS Selectors that need regular expression trouble shooting", 
-            "title": "Nov 5"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-29_3", 
-            "text": "CSS selector interface needs to be implemented  generally going well, and will go over with William next week  some problems from last week persist.", 
-            "title": "Oct 29"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-22_2", 
-            "text": "mondoweiss: need regular expressions to prevent duplicates b/c the comments are distinct  time zone stuff: apparently not difficult to maintain the TZ, but different websites handle this differently  also issue with the Washington Times, show it to us next week.", 
-            "title": "Oct 22"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-15_3", 
-            "text": "Vinnie is getting through this, and next week she'll bring a spreadsheet  Vinnie will also see if it's possible to keep both date posted and date modified,   Yuya will add a column to the database for \"date posted\" in cases where this is available", 
-            "title": "Oct 15"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-8_3", 
-            "text": "Vinnie will start looking at the old article database, when available (Yuya setting up), in order to start comparing column entries with timestamp/date and Author and (1) generate a list of problems (like Eldiflor's) and (2) then start to find CSS Selectors.   Old   Vinnie   Alejandro learned how to find css selectors, Vinnie will try to do a few for Sep 24th.  Vinnie has done most of the sites, and had trouble with two sites  in addition to CSS selector: need reg ex to identify the metadata, eg. if author says \"by Name\", need reg ex that can strip out \"by\". So Vinnie will eventually need to write the regex for each site where there's an issue. -- not for now.  Alejandro will send a list of sites to add to Vinnie, and Yuya will run an instance that won't be infinite to find which sites are not working for author/date/timestamp pick up - Sep 24", 
-            "title": "Oct 8"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#aliastags", 
-            "text": "", 
-            "title": "Alias/Tags"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#oct-15_4", 
-            "text": "old code is somewhat in conflict, and needs to be pushed with updates - for Oct 22.  Jai has written code for scope alias and tags and cache, needs to be tested - OCt 1", 
-            "title": "Oct 15"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#interface", 
-            "text": "Roger is suggesting to look at the following to update the stats: http://ironsummitmedia.github.io/startbootstrap-sb-admin-2/pages/index.html", 
-            "title": "Interface"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#upgrade-newspaperpython", 
-            "text": "newspaper: upgrading python and then this will run, and moved to digital ocean -- done   hope to have the IP address for the MedCAT -- Yuya emailed.", 
-            "title": "Upgrade Newspaper/Python"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#team", 
-            "text": "Alejandro will email Paul for the possible other developer. -- leave it for now", 
-            "title": "Team"
-        }, 
-        {
-            "location": "/Current-Tasks-and-Notes/#location", 
-            "text": "when DSU takes over MediaCAT web app, then we will look into having a UTSC subdomain.", 
-            "title": "Location"
+            "location": "/Home/", 
+            "text": "Homepage for the project\n\n\nResources\n\n\n[[Source use cases and Project URLS]]\n\n\nVoyage Author Accuracy", 
+            "title": "Home"
         }, 
         {
             "location": "/How-to:-CSS-Selector-Training/", 
@@ -291,8 +311,293 @@
             "title": "Meeting: Wednesday, May 13th 2015"
         }, 
         {
+            "location": "/Old-Tasks-and-Notes/", 
+            "text": "Move server\n\n\nDec 3\n\n\n\n\nTurns out that WARC'ing is going faster than we thought: approximately 800 URLs in 5 hours; 4 simultaneous processes take 1.7 GB Ram, with 2 processors. \n\n\n\n\n\n\nNov 26\n\n\n\n\nAfter 1pm meeting to go through ideal backlink export format for priority queuing\n\n\nPriority queuing using the Google, in the form of \"keyword site:\"\n\n\nTeam to Meet on tuesday for Diagrams and testing\n\n\ntesting over summer - 1 instance to 1.5 instance per cpu core\n\n\nalso in future parallel per site couple of nytimes still 1-1.5 per core\n\n\nJai got his placement because of the work he did for UTMEDIACAT!\n\n\n\n\nNov 19\n\n\n\n\nhave documentation, diagrams ready for all processes\n\n\ntest new database and see how much RAM/cpu space is required\n\n\nget email wording for permission to crawl sites\n\n\ncost few hundred\n\n\nset up meeting in mid December\nmay need more than 60gb\nRAM depends on how many sites in parallel\nswap space is slow if accessing all sites and accessing all memory\nan instance for 3 sites is 4gb memory being used\nwill cost few hundred dollars with IITS\n\n\n\n\nDatabase:\n\n\nDec 3:\n\n\n\n\nMet to try do the MySQL: couldn't easily transfer the SQLite database to MySQL, so in the end, it might be easiest to have the Bot Discovery (Plan B) use MySQL for its RAM database, and keep the result database in SQLite. This will help with testing to ensure stability. Try to do for next week.\n\n\n\n\nNov 26:\n\n\nMySQL update: Not yet work on implementation\n\n\nEntering them through web interface\nTesting them solution: get all selectors from db from a given site, evaluate a given page for every selector in place. vs. paste in every time. Create account for vinnie, login and test ssh connect to db.\n\n\nAlternate option: Django page instead to run and test selector\n\n\nSource articles - Jai - in progress\nnow working for new results. but now have to go and do it retroactively - make a script to go and get the source sites now\n\n\nNov 19:\n\n\n\n\nmeeting yesterday for the database selection\n\n\nthought of how to optimize going with MySQL with Django implement\n\n\nDjango can have multiple have dbs, keep existing SQL lite and implement new mysql database\n\n\nadd the archiving of source articles that are found, and have this reflected in the interface - deferred\n\n\n\n\nNov 5:\n\n\n\n\nadd the archiving of source articles that are found, and have this reflected in the interface \n\n\n\n\nWeekly sweeps\n\n\nNov 26\n\n\n\n\nnewspaper sweeps is fine - Alejandro to add still\n\n\n\n\nNov 19\n\n\ndaily weekly sweeps is fine for newspaper\n* need to add all the necessary referring sites - deferred for Alejandro to add\n\n\nNov 5:\n\n\n\n\nstarted without a hitch\n\n\nneed to add all the necessary referring sites\n\n\n\n\nOct 29:\n\n\n\n\nin a day, found 161, not linear, first hour was a lot, then found less in the next 23\n\n\n\n\nOct 22:\n\n\n\n\nJai/Roger will look into setting up an instance of UTMediaCAT to scan twitter and domains that use Newspaper/RSS \n\n\n\n\nImage preservation and style sheets preservation\n\n\nOct 15\n\n\n\n\ngenerally, the WPull is working really well, takes about 100 seconds to generate the WARC \n\n\noccasionally, some strange issues, like black background, but doesn't affect the text and links\n\n\n\n\nWARC\n\n\nDec 3:\n\n\n\n\nFor easy viewing, we thought we would put a PDF version of webpage as a link. However the Phantom JS process for the PDF is taking a long time. We will wait to see if Roger has a solution, and if not, perhaps we will look into adding a WARC viewer.\n\n\n\n\nNov 12\n\n\n\n\nWARC'ing is stable, can do a maximum at 2 WARCs at a time, but this can be increased\n\n\nPDF-viewer: this is nearly ready, just need to have code merged\n\n\nthere was only one bad WARC\n\n\n\n\nNov 5\n\n\n\n\nWARC'ing is not done: there was a memory crash\n\n\nWARC: dynamic number of processes based on how much memory is available\n\n\nWARCs have been checked\n\n\n\n\nOct 29\n\n\n\n\nWARC'ing also can take up a lot of memory, approx 2 minutes for each hit, need to implement a queue with a maximum number of simultaneous processes.\n\n\n\n\nOct 8\n\n\n\n\nRoger and Jai managed to get the PhantomJS/WPull to get the WARC, but there's a problem with the speed\n\n\nRoger/Jai believe that they can make it faster by figuring out what elements to ignore --- here's what Roger writes: \"we can manually force it to generate files in 2 mins for each url, and the results can be sill good. However, as a result, it is likely that a few images will be missing.( you can check the attachments to see sample file generated by this strategy)\"\n\n\n\n\nOct 1:\n\n\n\n\nRoger figure out how to use PhantomJS \n WPull to get an html output, which runs javascript. This week Jai/Roger will look to see if it's possible to do direct to WARC (preferable to having an export to WARC or conversion from HTML). If so, that's what we'll use.\n\n\n\n\nOLD:\n\n\n\n\nWarC vs Zotero-like ability to snapshot? Jai: snapshot is possible. Kim writes why WARC is far preferable. Problem: not easy to WARC a javascript\n\n\nPhantomJS:  does a PDF of the webpage, but the \"print-out\" version, doesn't have selectable text (not good)\n\n\nWKHTMLtoPDF: renders most of the javascript, linux-version\n\n\nChrome extension works but it is very dependent, one possibility is to have an auto-clicker that runs through Chrome--seems to work best, but would need to have an instance of chromium to handle it\n\n\nSelenium: another project -- checking into it. \n\n\nChrome javascript is available, but it isn't trivial to automate. Question: does the DSU have WARC'ing functionality they can give us? Maybe talk to Anya before going to all the trouble.\n\n\nYuya/Roger also looking at Warc issue\n\n\n\n\nCrawler (Plan B) Test on NYT, CNN, BBC\n\n\nDec 3:\n\n\n\n\nNew Terminology: Bot Discovery for the Plan B, and Newspaper Crawler is RSS Discovery\n\n\ntest Bot Discovery with WARC'ing processes.\n\n\n\n\nNov 26:\n\n\nCSS selector update:\nMade tool for testing CSS selectors. Current solution is doing it in the browser. Browser CSS selectors might not be the same implementation as the XML one - depends on which browser you use. Python script to use the xml stuff, same stuff that the crawler uses to test accurately. Needs SSH access to server needs access to get database to site. \n\n\n\n\ndisplay and keyword matched keyword - highlight keyword\n\n\ncostly to do for every article taking too much time\n\n\nshows all text and highlights all matching keywords\n\n\ncrash in 2 weeks but ran again and since then hasn't stopped\n\n\nanchor text is halfway there - the text of links\n\n\n\n\nNov 19:\n\n\n\n\ncrawler not run this week, will run next week\n\n\nimplement to store the text as well for each article, naive implementation to show the text around the found keyword based on text and matched keyword. recreate in articles. not currently stored in database. full text stored so see surrounding text. takes 5-10 seconds to load text in \"Matched Keywords\" - this will be used for the comparison of text when it's separated out\n\n\nanchor text is still required - william and yuya getting the link\n\n\n\n\nlots of cn.nytimes.com \n\n\nNov 12:\n\n\n\n\nno crash, but 2 processes are stuck, might be external\n\n\nNext Tuesday: Yuya, Jai, and William will meet to talk about database\n\n\nno other problems as of right now.\n\n\nwe'll attempt to separate out the text of the article in order to make it available for comparison on re-crawls\n\n\nfinding about 20 hits a day, mostly on NYT\n\n\nCSS selectors: \n\n\n\n\nNov 5:\n\n\n\n\ndatabase/save state: not yet working; don't go with sql-lite; use MySQL or other\n\n\nwe will increase server capacity to 40 gb \n 4gb RAM, \n\n\nWe are targetting December to finish implementing the database, and getting ready to do a baseline crawl.\n\n\n\n\nOct 29:\n\n\n\n\ndebugged problem of not picking anything up\n\n\nmemory issue: even with six minute interval of memory logging, we're not able to see why memory usage goes up suddenly\n\n\none possible solution is to do save state/database: probably best to do this for a variety of reasons\n\n\nanother solution is hashing and perhaps 64 bit hashing.\n\n\nanother possible solution: paging: using hard drive for RAM \n\n\nwhether we need more server capacity\n\n\n\n\nOct 22:\n\n\n\n\nnothing picked up yet\n\n\nfreezes, and memory issues: debugging (William), need to catch just before it crashes\n\n\n\n\n\n\nOct 15:\n\n\n\n\nsome problems with the NYT/BBC searches, probably not a unicode problem, and try to see if this is solved by next week.\n\n\n\n\nOct 8\n\n\n\n\nSeems like the unicode problem has been fixed, and the 3 instances have now been running for 12 hours without crashing\n\n\nrates for speed: Cnn is 5000 pages/hour; NYT: 3700 pg/hr; BBC: 1700 pg/hr\n\n\nkeep doing the test, to get a sense; gone through 150,000 pages in last 12 hours with no hits\n\n\n\n\nOct 1\n\n\n\n\nOct 1st: NYT crashed, cnn.com stuck on transcript.cnn.com, BBC going about half the speed of cnn.com. Next week: figure out an average rate per hour or day. \n\n\nOct 1st: three instances running. We'll add exception handler to deal with normal breakdowns so that the crawl continues.\n\n\n\n\nOptimizing plan b crawler:\n\n\nPriority Queuing (Oct 15):\n\n\n\n\nsearch google for all aliases and then queue those hits.\n\n\nproblem: google doesn't search embedded links, would need a source code search for that, so Alejandro is going to write to google.\n\n\nlooking at getting backlinks from a company.\n\n\n\n\nmulti-threading on single site:\n\n\n\n\nwhere one process is downloading/queuing and one process is analyzing metadata \n\n\nleave until later, need to iron out bugs with crawler first.\n\n\n\n\nmulti-threading for multiple sites:\n\n\nOct 15\n\n\n\n\nImplemented multi-threading\n\n\nImplemented log per site\n\n\n\n\nOct 8\n\n\n\n\nWilliam will implement newspaper code for analysis, and Yuya will test it; \n\n\nWilliam/Yuya will also implement a log per web domain per crawl (instead of all together)\n\n\nfixes that were implemented to crawler need to be implemented in the multi-thread crawler, needs to be done manually - William\n\n\nkeep on eye on this: readability issue was implemented over the summer, and this makes the crawl faster, but that also leads to greater instability, the source of the errors we saw this week.\n\n\n\n\nnotes\n\n\n\n\nOct 1: \n\n\nquestion regarding regular expressions, and whether there should be some kind of automated interface to alert user of url patterns or subdomains that are not bringing up hits - we'll think about this.\n\n\nremember what's not an article - Not yet assigned\n\n\na way to discover new articles, eg \"this week's stories\"  - Not yet assigned\n\n\n\n\n3rd party search - Not yet assigned\n\n\n\n\n\n\ndependent on upgrading python, perhaps by Sep 17th, if not Sep 24th\n\n\n\n\nunicode issue that needs to be tested, but it has been incorporated.\n\n\nupgrade is done, \"crawler straying off\" issue - crawler seems to get stuck in video or other path: Yuya will look for ways to produce a \"regular expression\" of URL (white/black list) \n-- Yuya has implemented a filter, so that user can manually insert black list: either normal string or reg ex.\n\n\nproblem that the crawler is treating the same url as distinct urls - William has a solution (Sep 24th) - fixed\n\n\ncode needs to be modified so it doesn't skip something - fixed\n\n\nquestion: does anyone get mad at us, kick out our user agent?\n\n\n\n\nCSS Selectors\n\n\nNov 19\n\n\nUI for CSS selectors on the site - for adding selectors. go to a site in referring sites and click on the site, can add css selectors at the bottom of the page\nneeds to be hooked up to the crawler\nright now only hooked up to date modified and author\n* will Alejandro want to add CSS selectors to the old database sites as well? will he use the old database?\n\n\nNov 12\n\n\n\n\ncode is implemented to find CSS selectors as part of Newspaper, but we need UI on the site, so that a user can go in and plug in CSS selectors based on domain\n\n\n\n\n\n\nNov 5\n\n\n\n\nneed some examples from Vinnie of CSS Selectors that need regular expression trouble shooting\n\n\n\n\nOct 29\n\n\n\n\nCSS selector interface needs to be implemented\n\n\ngenerally going well, and will go over with William next week\n\n\nsome problems from last week persist.\n\n\n\n\nOct 22\n\n\n\n\nmondoweiss: need regular expressions to prevent duplicates b/c the comments are distinct\n\n\ntime zone stuff: apparently not difficult to maintain the TZ, but different websites handle this differently\n\n\nalso issue with the Washington Times, show it to us next week.\n\n\n\n\nOct 15\n\n\n\n\nVinnie is getting through this, and next week she'll bring a spreadsheet\n\n\nVinnie will also see if it's possible to keep both date posted and date modified, \n\n\nYuya will add a column to the database for \"date posted\" in cases where this is available\n\n\n\n\nOct 8\n\n\n\n\nVinnie will start looking at the old article database, when available (Yuya setting up), in order to start comparing column entries with timestamp/date and Author and (1) generate a list of problems (like Eldiflor's) and (2) then start to find CSS Selectors.\n\n\n\n\nOld\n\n\n\n\nVinnie \n Alejandro learned how to find css selectors, Vinnie will try to do a few for Sep 24th.\n\n\nVinnie has done most of the sites, and had trouble with two sites\n\n\nin addition to CSS selector: need reg ex to identify the metadata, eg. if author says \"by Name\", need reg ex that can strip out \"by\". So Vinnie will eventually need to write the regex for each site where there's an issue. -- not for now.\n\n\nAlejandro will send a list of sites to add to Vinnie, and Yuya will run an instance that won't be infinite to find which sites are not working for author/date/timestamp pick up - Sep 24\n\n\n\n\nAlias/Tags\n\n\nNov 26\n\n\n\n\nkeyword aliases\n\n\naliases - do longer strings and stop if there's a match\n\n\nSource cites having aliases - not through the keywords - aliases can be done\n\n\nhow to see when an alias/keyword is used without a link\n\n\neditorial decisions according to Haaretz but not providing a link\n\n\nright now it's totally separate. can be done through a manual query\n\n\n\n\nOct 15\n\n\n\n\nold code is somewhat in conflict, and needs to be pushed with updates - for Oct 22.\n\n\nJai has written code for scope alias and tags and cache, needs to be tested - OCt 1\n\n\n\n\nInterface\n\n\n\n\nRoger is suggesting to look at the following to update the stats: http://ironsummitmedia.github.io/startbootstrap-sb-admin-2/pages/index.html\n\n\n\n\nUpgrade Newspaper/Python\n\n\n\n\nnewspaper: upgrading python and then this will run, and moved to digital ocean -- done \n\n\nhope to have the IP address for the MedCAT -- Yuya emailed.\n\n\n\n\nTeam\n\n\n\n\nAlejandro will email Paul for the possible other developer. -- leave it for now\n\n\n\n\nLocation\n\n\n\n\nwhen DSU takes over MediaCAT web app, then we will look into having a UTSC subdomain.", 
+            "title": "Old Tasks and Notes"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#move-server", 
+            "text": "", 
+            "title": "Move server"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#dec-3", 
+            "text": "Turns out that WARC'ing is going faster than we thought: approximately 800 URLs in 5 hours; 4 simultaneous processes take 1.7 GB Ram, with 2 processors.", 
+            "title": "Dec 3"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-26", 
+            "text": "After 1pm meeting to go through ideal backlink export format for priority queuing  Priority queuing using the Google, in the form of \"keyword site:\"  Team to Meet on tuesday for Diagrams and testing  testing over summer - 1 instance to 1.5 instance per cpu core  also in future parallel per site couple of nytimes still 1-1.5 per core  Jai got his placement because of the work he did for UTMEDIACAT!", 
+            "title": "Nov 26"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-19", 
+            "text": "have documentation, diagrams ready for all processes  test new database and see how much RAM/cpu space is required  get email wording for permission to crawl sites  cost few hundred  set up meeting in mid December\nmay need more than 60gb\nRAM depends on how many sites in parallel\nswap space is slow if accessing all sites and accessing all memory\nan instance for 3 sites is 4gb memory being used\nwill cost few hundred dollars with IITS", 
+            "title": "Nov 19"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#database", 
+            "text": "", 
+            "title": "Database:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#dec-3_1", 
+            "text": "Met to try do the MySQL: couldn't easily transfer the SQLite database to MySQL, so in the end, it might be easiest to have the Bot Discovery (Plan B) use MySQL for its RAM database, and keep the result database in SQLite. This will help with testing to ensure stability. Try to do for next week.", 
+            "title": "Dec 3:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-26_1", 
+            "text": "MySQL update: Not yet work on implementation  Entering them through web interface\nTesting them solution: get all selectors from db from a given site, evaluate a given page for every selector in place. vs. paste in every time. Create account for vinnie, login and test ssh connect to db.  Alternate option: Django page instead to run and test selector  Source articles - Jai - in progress\nnow working for new results. but now have to go and do it retroactively - make a script to go and get the source sites now", 
+            "title": "Nov 26:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-19_1", 
+            "text": "meeting yesterday for the database selection  thought of how to optimize going with MySQL with Django implement  Django can have multiple have dbs, keep existing SQL lite and implement new mysql database  add the archiving of source articles that are found, and have this reflected in the interface - deferred", 
+            "title": "Nov 19:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-5", 
+            "text": "add the archiving of source articles that are found, and have this reflected in the interface", 
+            "title": "Nov 5:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#weekly-sweeps", 
+            "text": "", 
+            "title": "Weekly sweeps"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-26_2", 
+            "text": "newspaper sweeps is fine - Alejandro to add still", 
+            "title": "Nov 26"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-19_2", 
+            "text": "daily weekly sweeps is fine for newspaper\n* need to add all the necessary referring sites - deferred for Alejandro to add", 
+            "title": "Nov 19"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-5_1", 
+            "text": "started without a hitch  need to add all the necessary referring sites", 
+            "title": "Nov 5:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-29", 
+            "text": "in a day, found 161, not linear, first hour was a lot, then found less in the next 23", 
+            "title": "Oct 29:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-22", 
+            "text": "Jai/Roger will look into setting up an instance of UTMediaCAT to scan twitter and domains that use Newspaper/RSS", 
+            "title": "Oct 22:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#image-preservation-and-style-sheets-preservation", 
+            "text": "", 
+            "title": "Image preservation and style sheets preservation"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-15", 
+            "text": "generally, the WPull is working really well, takes about 100 seconds to generate the WARC   occasionally, some strange issues, like black background, but doesn't affect the text and links", 
+            "title": "Oct 15"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#warc", 
+            "text": "", 
+            "title": "WARC"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#dec-3_2", 
+            "text": "For easy viewing, we thought we would put a PDF version of webpage as a link. However the Phantom JS process for the PDF is taking a long time. We will wait to see if Roger has a solution, and if not, perhaps we will look into adding a WARC viewer.", 
+            "title": "Dec 3:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-12", 
+            "text": "WARC'ing is stable, can do a maximum at 2 WARCs at a time, but this can be increased  PDF-viewer: this is nearly ready, just need to have code merged  there was only one bad WARC", 
+            "title": "Nov 12"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-5_2", 
+            "text": "WARC'ing is not done: there was a memory crash  WARC: dynamic number of processes based on how much memory is available  WARCs have been checked", 
+            "title": "Nov 5"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-29_1", 
+            "text": "WARC'ing also can take up a lot of memory, approx 2 minutes for each hit, need to implement a queue with a maximum number of simultaneous processes.", 
+            "title": "Oct 29"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-8", 
+            "text": "Roger and Jai managed to get the PhantomJS/WPull to get the WARC, but there's a problem with the speed  Roger/Jai believe that they can make it faster by figuring out what elements to ignore --- here's what Roger writes: \"we can manually force it to generate files in 2 mins for each url, and the results can be sill good. However, as a result, it is likely that a few images will be missing.( you can check the attachments to see sample file generated by this strategy)\"", 
+            "title": "Oct 8"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-1", 
+            "text": "Roger figure out how to use PhantomJS   WPull to get an html output, which runs javascript. This week Jai/Roger will look to see if it's possible to do direct to WARC (preferable to having an export to WARC or conversion from HTML). If so, that's what we'll use.", 
+            "title": "Oct 1:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#old", 
+            "text": "WarC vs Zotero-like ability to snapshot? Jai: snapshot is possible. Kim writes why WARC is far preferable. Problem: not easy to WARC a javascript  PhantomJS:  does a PDF of the webpage, but the \"print-out\" version, doesn't have selectable text (not good)  WKHTMLtoPDF: renders most of the javascript, linux-version  Chrome extension works but it is very dependent, one possibility is to have an auto-clicker that runs through Chrome--seems to work best, but would need to have an instance of chromium to handle it  Selenium: another project -- checking into it.   Chrome javascript is available, but it isn't trivial to automate. Question: does the DSU have WARC'ing functionality they can give us? Maybe talk to Anya before going to all the trouble.  Yuya/Roger also looking at Warc issue", 
+            "title": "OLD:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#crawler-plan-b-test-on-nyt-cnn-bbc", 
+            "text": "", 
+            "title": "Crawler (Plan B) Test on NYT, CNN, BBC"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#dec-3_3", 
+            "text": "New Terminology: Bot Discovery for the Plan B, and Newspaper Crawler is RSS Discovery  test Bot Discovery with WARC'ing processes.", 
+            "title": "Dec 3:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-26_3", 
+            "text": "CSS selector update:\nMade tool for testing CSS selectors. Current solution is doing it in the browser. Browser CSS selectors might not be the same implementation as the XML one - depends on which browser you use. Python script to use the xml stuff, same stuff that the crawler uses to test accurately. Needs SSH access to server needs access to get database to site.    display and keyword matched keyword - highlight keyword  costly to do for every article taking too much time  shows all text and highlights all matching keywords  crash in 2 weeks but ran again and since then hasn't stopped  anchor text is halfway there - the text of links", 
+            "title": "Nov 26:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-19_3", 
+            "text": "crawler not run this week, will run next week  implement to store the text as well for each article, naive implementation to show the text around the found keyword based on text and matched keyword. recreate in articles. not currently stored in database. full text stored so see surrounding text. takes 5-10 seconds to load text in \"Matched Keywords\" - this will be used for the comparison of text when it's separated out  anchor text is still required - william and yuya getting the link   lots of cn.nytimes.com", 
+            "title": "Nov 19:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-12_1", 
+            "text": "no crash, but 2 processes are stuck, might be external  Next Tuesday: Yuya, Jai, and William will meet to talk about database  no other problems as of right now.  we'll attempt to separate out the text of the article in order to make it available for comparison on re-crawls  finding about 20 hits a day, mostly on NYT  CSS selectors:", 
+            "title": "Nov 12:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-5_3", 
+            "text": "database/save state: not yet working; don't go with sql-lite; use MySQL or other  we will increase server capacity to 40 gb   4gb RAM,   We are targetting December to finish implementing the database, and getting ready to do a baseline crawl.", 
+            "title": "Nov 5:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-29_2", 
+            "text": "debugged problem of not picking anything up  memory issue: even with six minute interval of memory logging, we're not able to see why memory usage goes up suddenly  one possible solution is to do save state/database: probably best to do this for a variety of reasons  another solution is hashing and perhaps 64 bit hashing.  another possible solution: paging: using hard drive for RAM   whether we need more server capacity", 
+            "title": "Oct 29:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-22_1", 
+            "text": "nothing picked up yet  freezes, and memory issues: debugging (William), need to catch just before it crashes", 
+            "title": "Oct 22:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-15_1", 
+            "text": "some problems with the NYT/BBC searches, probably not a unicode problem, and try to see if this is solved by next week.", 
+            "title": "Oct 15:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-8_1", 
+            "text": "Seems like the unicode problem has been fixed, and the 3 instances have now been running for 12 hours without crashing  rates for speed: Cnn is 5000 pages/hour; NYT: 3700 pg/hr; BBC: 1700 pg/hr  keep doing the test, to get a sense; gone through 150,000 pages in last 12 hours with no hits", 
+            "title": "Oct 8"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-1_1", 
+            "text": "Oct 1st: NYT crashed, cnn.com stuck on transcript.cnn.com, BBC going about half the speed of cnn.com. Next week: figure out an average rate per hour or day.   Oct 1st: three instances running. We'll add exception handler to deal with normal breakdowns so that the crawl continues.", 
+            "title": "Oct 1"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#optimizing-plan-b-crawler", 
+            "text": "", 
+            "title": "Optimizing plan b crawler:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#priority-queuing-oct-15", 
+            "text": "search google for all aliases and then queue those hits.  problem: google doesn't search embedded links, would need a source code search for that, so Alejandro is going to write to google.  looking at getting backlinks from a company.", 
+            "title": "Priority Queuing (Oct 15):"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#multi-threading-on-single-site", 
+            "text": "where one process is downloading/queuing and one process is analyzing metadata   leave until later, need to iron out bugs with crawler first.", 
+            "title": "multi-threading on single site:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#multi-threading-for-multiple-sites", 
+            "text": "Oct 15   Implemented multi-threading  Implemented log per site   Oct 8   William will implement newspaper code for analysis, and Yuya will test it;   William/Yuya will also implement a log per web domain per crawl (instead of all together)  fixes that were implemented to crawler need to be implemented in the multi-thread crawler, needs to be done manually - William  keep on eye on this: readability issue was implemented over the summer, and this makes the crawl faster, but that also leads to greater instability, the source of the errors we saw this week.", 
+            "title": "multi-threading for multiple sites:"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#notes", 
+            "text": "Oct 1:   question regarding regular expressions, and whether there should be some kind of automated interface to alert user of url patterns or subdomains that are not bringing up hits - we'll think about this.  remember what's not an article - Not yet assigned  a way to discover new articles, eg \"this week's stories\"  - Not yet assigned   3rd party search - Not yet assigned    dependent on upgrading python, perhaps by Sep 17th, if not Sep 24th   unicode issue that needs to be tested, but it has been incorporated.  upgrade is done, \"crawler straying off\" issue - crawler seems to get stuck in video or other path: Yuya will look for ways to produce a \"regular expression\" of URL (white/black list) \n-- Yuya has implemented a filter, so that user can manually insert black list: either normal string or reg ex.  problem that the crawler is treating the same url as distinct urls - William has a solution (Sep 24th) - fixed  code needs to be modified so it doesn't skip something - fixed  question: does anyone get mad at us, kick out our user agent?", 
+            "title": "notes"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#css-selectors", 
+            "text": "", 
+            "title": "CSS Selectors"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-19_4", 
+            "text": "UI for CSS selectors on the site - for adding selectors. go to a site in referring sites and click on the site, can add css selectors at the bottom of the page\nneeds to be hooked up to the crawler\nright now only hooked up to date modified and author\n* will Alejandro want to add CSS selectors to the old database sites as well? will he use the old database?", 
+            "title": "Nov 19"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-12_2", 
+            "text": "code is implemented to find CSS selectors as part of Newspaper, but we need UI on the site, so that a user can go in and plug in CSS selectors based on domain", 
+            "title": "Nov 12"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-5_4", 
+            "text": "need some examples from Vinnie of CSS Selectors that need regular expression trouble shooting", 
+            "title": "Nov 5"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-29_3", 
+            "text": "CSS selector interface needs to be implemented  generally going well, and will go over with William next week  some problems from last week persist.", 
+            "title": "Oct 29"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-22_2", 
+            "text": "mondoweiss: need regular expressions to prevent duplicates b/c the comments are distinct  time zone stuff: apparently not difficult to maintain the TZ, but different websites handle this differently  also issue with the Washington Times, show it to us next week.", 
+            "title": "Oct 22"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-15_3", 
+            "text": "Vinnie is getting through this, and next week she'll bring a spreadsheet  Vinnie will also see if it's possible to keep both date posted and date modified,   Yuya will add a column to the database for \"date posted\" in cases where this is available", 
+            "title": "Oct 15"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-8_3", 
+            "text": "Vinnie will start looking at the old article database, when available (Yuya setting up), in order to start comparing column entries with timestamp/date and Author and (1) generate a list of problems (like Eldiflor's) and (2) then start to find CSS Selectors.   Old   Vinnie   Alejandro learned how to find css selectors, Vinnie will try to do a few for Sep 24th.  Vinnie has done most of the sites, and had trouble with two sites  in addition to CSS selector: need reg ex to identify the metadata, eg. if author says \"by Name\", need reg ex that can strip out \"by\". So Vinnie will eventually need to write the regex for each site where there's an issue. -- not for now.  Alejandro will send a list of sites to add to Vinnie, and Yuya will run an instance that won't be infinite to find which sites are not working for author/date/timestamp pick up - Sep 24", 
+            "title": "Oct 8"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#aliastags", 
+            "text": "", 
+            "title": "Alias/Tags"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#nov-26_4", 
+            "text": "keyword aliases  aliases - do longer strings and stop if there's a match  Source cites having aliases - not through the keywords - aliases can be done  how to see when an alias/keyword is used without a link  editorial decisions according to Haaretz but not providing a link  right now it's totally separate. can be done through a manual query", 
+            "title": "Nov 26"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#oct-15_4", 
+            "text": "old code is somewhat in conflict, and needs to be pushed with updates - for Oct 22.  Jai has written code for scope alias and tags and cache, needs to be tested - OCt 1", 
+            "title": "Oct 15"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#interface", 
+            "text": "Roger is suggesting to look at the following to update the stats: http://ironsummitmedia.github.io/startbootstrap-sb-admin-2/pages/index.html", 
+            "title": "Interface"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#upgrade-newspaperpython", 
+            "text": "newspaper: upgrading python and then this will run, and moved to digital ocean -- done   hope to have the IP address for the MedCAT -- Yuya emailed.", 
+            "title": "Upgrade Newspaper/Python"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#team", 
+            "text": "Alejandro will email Paul for the possible other developer. -- leave it for now", 
+            "title": "Team"
+        }, 
+        {
+            "location": "/Old-Tasks-and-Notes/#location", 
+            "text": "when DSU takes over MediaCAT web app, then we will look into having a UTSC subdomain.", 
+            "title": "Location"
+        }, 
+        {
             "location": "/Source-use-cases-and-Project-URLS/", 
-            "text": "See email for passwords\n\n\nJai, Yuya, Roger:\n\n\nhttp://kujira.ca/admin\n\n\nAll our project details (CRC\u2019s, Plans, etc.) can found at http://jaisughand.com/voyage/\n\n\nPaul:\n\n\nhttp://104.236.42.23/\n\n\nWilliam:\n\n\nhttp://gq3mwt28.cloudapp.net (must be accessed from a utoronto ip)\n\n\nUSE CASES\n\n\nConsolidated use cases can be accessed and edited via this document:\nhttps://docs.google.com/spreadsheets/d/1FROpHbhkee8Pov1XeePDlL0okeFtnqIhLOvdl7u1I5U/edit?usp=sharing\n\n\nSTANFORD NLP\n\n\nhttp://nlp.stanford.edu/\n\n\nNB (Alejandro): The use cases have been prioritized in the first sheet labelled \"priorities\" (original sheet can be found in second sheet). There are some which may already be done, and have asterisks next to the Use Case ID. Others may be duplicates, and have question marks next to the Use Case ID. Finally, there are some things Alejandro didn't understand about the use case, and these also have question marks (and questions).", 
+            "text": "Jai, Yuya, Roger:\n\n\nhttp://kujira.ca/admin\n\n\nAll our project details (CRC\u2019s, Plans, etc.) can found at http://jaisughand.com/voyage/\n\n\nPaul:\n\n\nhttp://104.236.42.23/\n\n\nWilliam:\n\n\nhttp://gq3mwt28.cloudapp.net (must be accessed from a utoronto ip)\n\n\nUSE CASES\n\n\nConsolidated use cases can be accessed and edited via this document:\nhttps://docs.google.com/spreadsheets/d/1FROpHbhkee8Pov1XeePDlL0okeFtnqIhLOvdl7u1I5U/edit?usp=sharing\n\n\nSTANFORD NLP\n\n\nhttp://nlp.stanford.edu/\n\n\nNB (Alejandro): The use cases have been prioritized in the first sheet labelled \"priorities\" (original sheet can be found in second sheet). There are some which may already be done, and have asterisks next to the Use Case ID. Others may be duplicates, and have question marks next to the Use Case ID. Finally, there are some things Alejandro didn't understand about the use case, and these also have question marks (and questions).", 
             "title": "Source use cases and Project URLS"
         }, 
         {
