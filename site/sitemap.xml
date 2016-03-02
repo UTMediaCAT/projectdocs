@@ -3,8 +3,16 @@
 
     
     <url>
-     <loc>None/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <loc>None/2015-Current-Tasks-and-Notes/</loc>
+     <lastmod>2016-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>None/2016-Current-Tasks-and-Notes/</loc>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,15 +20,7 @@
     
     <url>
      <loc>None/Current-List-of-Israeli-Sources-and-Referring-Sites/</loc>
-     <lastmod>2015-11-11</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>None/Current-Tasks-and-Notes/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,7 +28,7 @@
     
     <url>
      <loc>None/Home/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -36,7 +36,7 @@
     
     <url>
      <loc>None/How-to:-CSS-Selector-Training/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -44,7 +44,7 @@
     
     <url>
      <loc>None/Meeting:-Friday,-July-17th-2015/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -52,7 +52,7 @@
     
     <url>
      <loc>None/Meeting:-Friday,-May-22nd-2015/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -60,7 +60,7 @@
     
     <url>
      <loc>None/Meeting:-Friday-July-24-2015/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -68,7 +68,7 @@
     
     <url>
      <loc>None/Meeting:-Thursday,-July-2nd,-2015/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -76,7 +76,7 @@
     
     <url>
      <loc>None/Meeting:-Thursday,-May-28-2015/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -84,7 +84,7 @@
     
     <url>
      <loc>None/Meeting:-Thursday,-November-5,-2015/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -92,7 +92,7 @@
     
     <url>
      <loc>None/Meeting:-Thursday,-October-22,-2015/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -100,7 +100,15 @@
     
     <url>
      <loc>None/Meeting:-Wednesday,-May-13th-2015/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2016-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>None/Old-Tasks-and-Notes/</loc>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -108,7 +116,7 @@
     
     <url>
      <loc>None/Source-use-cases-and-Project-URLS/</loc>
-     <lastmod>2015-11-11</lastmod>
+     <lastmod>2016-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Meeting: Friday July 24 2015 - My Docs</title>
+  <title>2016 Current Tasks and Notes - My Docs</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Meeting: Friday July 24 2015";
+    var mkdocs_page_name = "2016 Current Tasks and Notes";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -57,8 +57,36 @@
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../2016-Current-Tasks-and-Notes/">2016 Current Tasks and Notes</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">2016 Current Tasks and Notes</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#updates-have-moved">Updates have moved</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#open-issues-in-github">Open Issues in Github</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#iits-server-move">IITS Server Move</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#optimization">Optimization</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#ui-public-portal">UI &amp; Public Portal:</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#database">Database</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#github-issues">Github issues</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#css-selectors">CSS Selectors</a></li>
+                
+            
+            </ul>
         
     </li>
 <li>
@@ -99,12 +127,8 @@
 <li>
           
             <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Meeting: Friday July 24 2015</a>
-        
-            <ul>
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../Meeting:-Friday-July-24-2015/">Meeting: Friday July 24 2015</a>
         
     </li>
 <li>
@@ -180,7 +204,7 @@
     
       
     
-    <li>Meeting: Friday July 24 2015</li>
+    <li>2016 Current Tasks and Notes</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -190,31 +214,51 @@
           <div role="main">
             <div class="section">
               
-                <ul>
-<li>The crawler was speed up by 3% due to changes in the way the yaml file was loaded.
-https://github.com/UTMediaCAT/Voyage/commit/c86d97d31e1f06b107a4ae5b6397717af8efceac</li>
-</ul>
-<p>The profiler gave all stats per method (C profiler). Conclusion: the parser takes much longer than the parser.</p>
-<p>The c profiler gives a python object that you can do with it anything you want, there might be an easier way to do it.</p>
-<p>Q: Is there things newspaper does that is unnecessary for us? a configuration we can change?</p>
-<p>A: The settings for newspaper have been configured already for our purposes (example: we dont download images into the crawler).  The remainder of the settings in Newspaper only fine tune small things.</p>
+                <h1 id="updates-have-moved">Updates have moved</h1>
+<p>https://trello.com/b/Y4g02YiL</p>
+<h1 id="open-issues-in-github">Open Issues in Github</h1>
+<p>https://github.com/UTMediaCAT/Voyage/issues</p>
+<h1 id="iits-server-move">IITS Server Move</h1>
 <ul>
-<li>Plan B crawler goes through 5000 links and gets 1 article</li>
+<li>clear out VMs on Digital Ocean--Roger will check with Jai &amp; Yuya</li>
+<li>decided on VM type and size</li>
+<li></li>
 </ul>
-<p>Controlled experiment – target a site that is interesting to the client and use crawler A &amp; B to get stats of what each crawler gets on the same sample.  There is no condition to stop plan B from getting the same data on each site.  There is a page limit on plan B for each site so that it can move to the next site in a reasonable amount of time.</p>
-<p>Pick 3 sites and set up a separate instance to test over a 3 day period.</p>
-<p>Another solution is to cashe the crawlers state so it doesn’t spend time on pages it already has visited whenever the process is restarted.</p>
-<p>The 5000 number included all types of files on the web and should only include html pages, right now that figure includes all resource types.</p>
+<h1 id="optimization">Optimization</h1>
 <ul>
-<li>
-<p>Other than that are we collecting a good set of data for the client. For the most part we have a good amount of tweets and articles for running over 2 months.</p>
-</li>
-<li>
-<p>Next step for developers is to run the crawler for a long time on a focused scope (~3 referring sites) to understand the differences between Newspaper and Plan B.</p>
-</li>
+<li>Roger is working on WARC and Crawl processes that take up so much memory, and can cause crashes</li>
 </ul>
-<p><strong>Next Meeting: Wednesday July 29 on Skype 5:30pm</strong></p>
-<p><strong>Next Next Meeting: Thursday July 30 downtown 4:00pm</strong></p>
+<h1 id="ui-public-portal">UI &amp; Public Portal:</h1>
+<ul>
+<li>Roger will check with Jai about implementing Source/Referring split for data, and ensure that we are WARCing source URLs</li>
+<li>adding a language column to the database</li>
+<li>Jai will do the "alias" for the UI</li>
+<li>We have converted "weekly sweeps" into "main", and given it a password (see our channel).</li>
+<li>We are going to go with a clean, simple "Bootstrap" modern business portal</li>
+<li>For the portal, we will use "generic" tags for the statistics for now.</li>
+</ul>
+<h1 id="database">Database</h1>
+<ul>
+<li>William started it, need to do speed tests, and what happens when visit queues get large. Issue for how Django issues queries. Speed test will start Jan 6, and take 2-3 weeks.</li>
+<li>Yuya can help migrate the database to Django.</li>
+<li>Jan 13: William started test with full log, and on a few websites, with paging-version, to discover what procedures, and then will get the logs to test an instance with paging versus an instance with the database.</li>
+<li>one issue: al-Jazeera using much more RAM than NYtimes, crawl is much slower. Al-Jazeera is the problem we hope that database can solve. </li>
+<li>Jan 27: database not working well. Paging was able to do 2 weeks of searches in bw 160-350 seconds, 139,000,000 operations, while MySQL did not deal with this well, doing only 1,000,000 in several hours. William will consult with other team members over dev channel of Slack. One possible solution is to "do queries ourselves" rather than rely on Django (too black boxy). One week is a possible for implementing this, asssuming everyone agrees that this is a good way to go. </li>
+</ul>
+<h1 id="github-issues">Github issues</h1>
+<ul>
+<li>did we resolve duplicates, #43 &amp; 31? if not, how long? Yuya is looking at duplication.</li>
+<li>Dec 13: Vinnie is finding a lot of duplicates.</li>
+<li>going over Github issues, and prioritize them; make product roadmap with necessary features and deadlines</li>
+<li>get data sets from ahRefs, Factiva, Proquest (and mark these datasets, so that can query them specifically in future)</li>
+<li>make timeline for staged ingesting</li>
+<li>make good documentation</li>
+</ul>
+<h1 id="css-selectors">CSS Selectors</h1>
+<ul>
+<li>issue with domains having more than one set of CSS selector, so add as much as possible</li>
+<li>blacklist the mobile site? </li>
+</ul>
               
             </div>
           </div>
@@ -222,10 +266,10 @@ https://github.com/UTMediaCAT/Voyage/commit/c86d97d31e1f06b107a4ae5b6397717af8ef
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Meeting:-Thursday,-July-2nd,-2015/" class="btn btn-neutral float-right" title="Meeting: Thursday, July 2nd, 2015"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Current-List-of-Israeli-Sources-and-Referring-Sites/" class="btn btn-neutral float-right" title="Current List of Israeli Sources and Referring Sites"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../Meeting:-Friday,-May-22nd-2015/" class="btn btn-neutral" title="Meeting: Friday, May 22nd 2015"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../2015-Current-Tasks-and-Notes/" class="btn btn-neutral" title="2015 Current Tasks and Notes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -251,10 +295,10 @@ https://github.com/UTMediaCAT/Voyage/commit/c86d97d31e1f06b107a4ae5b6397717af8ef
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../Meeting:-Friday,-May-22nd-2015/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../2015-Current-Tasks-and-Notes/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../Meeting:-Thursday,-July-2nd,-2015/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Current-List-of-Israeli-Sources-and-Referring-Sites/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
